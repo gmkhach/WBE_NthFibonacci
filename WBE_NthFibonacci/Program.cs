@@ -32,16 +32,17 @@ namespace WBE_NthFibonacci
 
         static void NthFibonacci(int n)
         {
-            int nMinus2 = 0;
-            int nMinus1 = 0;
-            // sets the 1st fibonacci number
-            int number = 1;
-            // if n>2 calculate n
-            for (int i = 0; i < n - 1; i++)
+            List<int> sequence = new List<int>();
+            for (int i = 0; i < n; i++)
             {
-                nMinus2 = nMinus1;
-                nMinus1 = number;
-                number = nMinus2 + nMinus1;
+                if (i < 2)
+                {
+                    sequence.Add(1);
+                }
+                else
+                {
+                    sequence.Add(sequence[i - 2] + sequence[i - 1]);
+                }
             }
             // building the output string
             string nth = $"{n}th";
@@ -57,7 +58,7 @@ namespace WBE_NthFibonacci
             {
                 nth = $"{n}rd";
             }
-            Console.WriteLine($"\nThe {nth} number in fibonacci sequence is {number}");
+            Console.WriteLine($"\nThe {nth} number in fibonacci sequence is {sequence.Last()}");
         }
     }
 }
