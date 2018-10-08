@@ -20,7 +20,10 @@ namespace WBE_NthFibonacci
                     {
                         throw new Exception("\nInvalid Entry!");
                     }
-                    NthFibonacci(input); 
+                    NthFibonacci(input);
+                    Console.Write("\nPress Enter to try again...");
+                    Console.ReadLine();
+                    Console.Clear();
                 }
                 catch (Exception ex)
                 {
@@ -35,14 +38,7 @@ namespace WBE_NthFibonacci
             List<int> sequence = new List<int>();
             for (int i = 0; i < n; i++)
             {
-                if (i < 2)
-                {
-                    sequence.Add(1);
-                }
-                else
-                {
-                    sequence.Add(sequence[i - 2] + sequence[i - 1]);
-                }
+                sequence.Add(i < 2 ? 1 : sequence[i - 2] + sequence[i - 1]);
             }
             // building the output string
             string nth = $"{n}th";
