@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * write a method that returns the nth number in the Fibonacci sequence where n is a positive integer.
+ * ie: NthFibonacci(7) returns 13.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,24 +27,21 @@ namespace WBE_NthFibonacci
                     }
                     // building the output string
                     string nth = $"{input}th";
-                    if (input % 10 == 1 && input != 11)
+                    if (input < 11 || input > 13)
                     {
-                        nth = $"{input}st";
-                    }
-                    else if (input % 10 == 2 && input != 12)
-                    {
-                        nth = $"{input}nd";
-                    }
-                    else if (input % 10 == 3 && input != 13)
-                    {
-                        nth = $"{input}rd";
+                        if (input % 10 == 1)
+                            nth = $"{input}st";
+                        if (input % 10 == 2)
+                            nth = $"{input}nd";
+                        if (input % 10 == 3)
+                            nth = $"{input}rd";
                     }
                     Console.WriteLine($"\nThe {nth} number in Fibonacci sequence is {NthFibonacci(input)}");
                 }
                 catch (Exception ex)
                 {
                     Console.Clear();
-                    Console.WriteLine(ex.Message);
+                    Console.WriteLine($"\n{ex.Message}");
                 }
                 Console.Write("\nPress Enter to try again...");
                 Console.ReadLine();
@@ -49,7 +51,7 @@ namespace WBE_NthFibonacci
 
         static int NthFibonacci(int input)
         {
-            return input <= 1 ? input : NthFibonacci(input - 2) + NthFibonacci(input - 1);
+                return input <= 1 ? input : NthFibonacci(input - 2) + NthFibonacci(input - 1);
         }
     }
 }
