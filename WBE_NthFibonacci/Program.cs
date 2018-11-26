@@ -21,6 +21,7 @@ namespace WBE_NthFibonacci
                 {
                     Console.Write("\nEnter a positive integer\n\n>>> ");
                     int input = int.Parse(Console.ReadLine().Trim());
+                    // handling invalid entries
                     if (input < 1)
                     {
                         throw new Exception("\nInvalid Entry!");
@@ -51,7 +52,8 @@ namespace WBE_NthFibonacci
 
         static int NthFibonacci(int input)
         {
-                return input <= 1 ? input : NthFibonacci(input - 2) + NthFibonacci(input - 1);
+            // for inputs of 0 or 1 the input itself is returned, otherwise the method recurses itself using the definition of Fibonacci sequence.
+            return input <= 1 ? input : NthFibonacci(input - 2) + NthFibonacci(input - 1);
         }
     }
 }
